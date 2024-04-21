@@ -16,4 +16,6 @@
     <string name="add_stud">Student Registration</string>
     <string name="save_data">Save Student</string>
     <string name="select_image">Select Image</string>
+    <string name="developer">Developed with ❤ by Ezra</string>
+    <string name="call">Call me 📲</string>
 </resources>

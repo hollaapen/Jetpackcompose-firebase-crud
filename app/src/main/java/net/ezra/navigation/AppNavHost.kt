@@ -11,7 +11,9 @@ import androidx.navigation.compose.rememberNavController
 import net.ezra.ui.SplashScreen
 import net.ezra.ui.about.AboutScreen
 import net.ezra.ui.auth.LoginScreen
-import net.ezra.ui.auth.SignupScreen
+import net.ezra.ui.auth.SignUpScreen
+import net.ezra.ui.dashboard.DashboardScreen
+//import net.ezra.ui.auth.SignupScreen
 import net.ezra.ui.home.HomeScreen
 import net.ezra.ui.students.AddStudents
 import net.ezra.ui.students.Search
@@ -21,7 +23,7 @@ import net.ezra.ui.students.Students
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = ROUTE_SPLASH
+    startDestination: String = ROUTE_HOME
 
 
 ) {
@@ -36,14 +38,11 @@ fun AppNavHost(
     ) {
 
 
-        composable(ROUTE_LOGIN) {
-            LoginScreen(navController)
-        }
 
 
-        composable(ROUTE_SIGNUP) {
-            SignupScreen(navController)
-        }
+//        composable(ROUTE_SIGNUP) {
+//            SignupScreen(navController)
+//        }
 
 
         composable(ROUTE_HOME) {
@@ -71,6 +70,21 @@ fun AppNavHost(
         composable(ROUTE_SEARCH) {
             Search(navController)
         }
+
+        composable(ROUTE_DASHBOARD) {
+            DashboardScreen(navController)
+        }
+
+        composable(ROUTE_REGISTER) {
+           SignUpScreen(navController = navController) {
+
+           }
+        }
+
+        composable(ROUTE_LOGIN) {
+            LoginScreen(navController = navController){}
+        }
+
 
 
 

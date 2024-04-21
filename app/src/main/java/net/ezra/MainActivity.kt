@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
         super.onCreate(savedInstanceState)
         FirebaseApp.initializeApp(this)
         FirebaseFirestore.getInstance()

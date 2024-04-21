@@ -8,7 +8,6 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.CircularProgressIndicator
@@ -18,6 +17,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -161,7 +161,7 @@ fun Students(navController: NavHostController, viewModel: FirestoreViewModel) {
                         }
                     }) {
                         Icon(
-                            Icons.Filled.ArrowBack,
+                            Icons.AutoMirrored.Filled.ArrowBack,
                             "backIcon",
                             tint = Color.White
                         )
@@ -178,10 +178,16 @@ fun Students(navController: NavHostController, viewModel: FirestoreViewModel) {
                         )
                     }
                 },
-                colors = TopAppBarDefaults.smallTopAppBarColors(
-                    containerColor = Color(0xff0FB06A),
-                    titleContentColor = Color.White,
-                ),
+                colors = topAppBarColors(
+        containerColor = Color(0xff0FB06A),
+        scrolledContainerColor = MaterialTheme.colorScheme.applyTonalElevation(
+    backgroundColor = containerColor,
+    elevation = TopAppBarSmallTokens.OnScrollContainerElevation
+),
+        navigationIconContentColor = TopAppBarSmallTokens.LeadingIconColor.value,
+        titleContentColor = Color.White,
+        actionIconContentColor = TopAppBarSmallTokens.TrailingIconColor.value
+    ),
             )
         },
 

@@ -24,7 +24,6 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -33,6 +32,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 import net.ezra.R
@@ -98,7 +98,7 @@ fun Search(navController: NavHostController) {
                         }
                     }) {
                         Icon(
-                            Icons.Filled.ArrowBack,
+                            Icons.AutoMirrored.Filled.ArrowBack,
                             "backIcon",
                             tint = Color.White
                         )
@@ -107,10 +107,16 @@ fun Search(navController: NavHostController) {
 
 
 
-                colors = TopAppBarDefaults.smallTopAppBarColors(
-                    containerColor = Color(0xff0FB06A),
-                    titleContentColor = Color.White,
-                ),
+                colors = topAppBarColors(
+        containerColor = Color(0xff0FB06A),
+        scrolledContainerColor = MaterialTheme.colorScheme.applyTonalElevation(
+    backgroundColor = containerColor,
+    elevation = TopAppBarSmallTokens.OnScrollContainerElevation
+),
+        navigationIconContentColor = TopAppBarSmallTokens.LeadingIconColor.value,
+        titleContentColor = Color.White,
+        actionIconContentColor = TopAppBarSmallTokens.TrailingIconColor.value
+    ),
             )
         },
 
@@ -134,8 +140,59 @@ fun Search(navController: NavHostController) {
                         Icon(imageVector = Icons.Default.Search,
                             contentDescription = "emailIcon"
                         ) },
-                    colors = TextFieldDefaults.textFieldColors(
-                        unfocusedPlaceholderColor = Color(0xff0FB06A)
+                    colors = TextFieldDefaults.colors(
+                        focusedTextColor = FilledTextFieldTokens.FocusInputColor.value,
+                        unfocusedTextColor = FilledTextFieldTokens.InputColor.value,
+                        disabledTextColor = FilledTextFieldTokens.DisabledInputColor.value
+                            .copy(alpha = FilledTextFieldTokens.DisabledInputOpacity),
+                        errorTextColor = FilledTextFieldTokens.ErrorInputColor.value,
+                        focusedContainerColor = FilledTextFieldTokens.ContainerColor.value,
+                        unfocusedContainerColor = FilledTextFieldTokens.ContainerColor.value,
+                        disabledContainerColor = FilledTextFieldTokens.ContainerColor.value,
+                        errorContainerColor = FilledTextFieldTokens.ContainerColor.value,
+                        cursorColor = FilledTextFieldTokens.CaretColor.value,
+                        errorCursorColor = FilledTextFieldTokens.ErrorFocusCaretColor.value,
+                        selectionColors = LocalTextSelectionColors.current,
+                        focusedIndicatorColor = FilledTextFieldTokens.FocusActiveIndicatorColor.value,
+                        unfocusedIndicatorColor = FilledTextFieldTokens.ActiveIndicatorColor.value,
+                        disabledIndicatorColor = FilledTextFieldTokens.DisabledActiveIndicatorColor.value
+                            .copy(alpha = FilledTextFieldTokens.DisabledActiveIndicatorOpacity),
+                        errorIndicatorColor = FilledTextFieldTokens.ErrorActiveIndicatorColor.value,
+                        focusedLeadingIconColor = FilledTextFieldTokens.FocusLeadingIconColor.value,
+                        unfocusedLeadingIconColor = FilledTextFieldTokens.LeadingIconColor.value,
+                        disabledLeadingIconColor = FilledTextFieldTokens.DisabledLeadingIconColor.value
+                            .copy(alpha = FilledTextFieldTokens.DisabledLeadingIconOpacity),
+                        errorLeadingIconColor = FilledTextFieldTokens.ErrorLeadingIconColor.value,
+                        focusedTrailingIconColor = FilledTextFieldTokens.FocusTrailingIconColor.value,
+                        unfocusedTrailingIconColor = FilledTextFieldTokens.TrailingIconColor.value,
+                        disabledTrailingIconColor = FilledTextFieldTokens.DisabledTrailingIconColor.value
+                            .copy(alpha = FilledTextFieldTokens.DisabledTrailingIconOpacity),
+                        errorTrailingIconColor = FilledTextFieldTokens.ErrorTrailingIconColor.value,
+                        focusedLabelColor = FilledTextFieldTokens.FocusLabelColor.value,
+                        unfocusedLabelColor = FilledTextFieldTokens.LabelColor.value,
+                        disabledLabelColor = FilledTextFieldTokens.DisabledLabelColor.value
+                            .copy(alpha = FilledTextFieldTokens.DisabledLabelOpacity),
+                        errorLabelColor = FilledTextFieldTokens.ErrorLabelColor.value,
+                        focusedPlaceholderColor = FilledTextFieldTokens.InputPlaceholderColor.value,
+                        unfocusedPlaceholderColor = Color(0xff0FB06A),
+                        disabledPlaceholderColor = FilledTextFieldTokens.DisabledInputColor.value
+                            .copy(alpha = FilledTextFieldTokens.DisabledInputOpacity),
+                        errorPlaceholderColor = FilledTextFieldTokens.InputPlaceholderColor.value,
+                        focusedSupportingTextColor = FilledTextFieldTokens.FocusSupportingColor.value,
+                        unfocusedSupportingTextColor = FilledTextFieldTokens.SupportingColor.value,
+                        disabledSupportingTextColor = FilledTextFieldTokens.DisabledSupportingColor.value
+                            .copy(alpha = FilledTextFieldTokens.DisabledSupportingOpacity),
+                        errorSupportingTextColor = FilledTextFieldTokens.ErrorSupportingColor.value,
+                        focusedPrefixColor = FilledTextFieldTokens.InputPrefixColor.value,
+                        unfocusedPrefixColor = FilledTextFieldTokens.InputPrefixColor.value,
+                        disabledPrefixColor = FilledTextFieldTokens.InputPrefixColor.value
+                            .copy(alpha = FilledTextFieldTokens.DisabledInputOpacity),
+                        errorPrefixColor = FilledTextFieldTokens.InputPrefixColor.value,
+                        focusedSuffixColor = FilledTextFieldTokens.InputSuffixColor.value,
+                        unfocusedSuffixColor = FilledTextFieldTokens.InputSuffixColor.value,
+                        disabledSuffixColor = FilledTextFieldTokens.InputSuffixColor.value
+                            .copy(alpha = FilledTextFieldTokens.DisabledInputOpacity),
+                        errorSuffixColor = FilledTextFieldTokens.InputSuffixColor.value,
                     )
                 )
 
