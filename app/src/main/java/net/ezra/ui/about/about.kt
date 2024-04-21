@@ -15,7 +15,6 @@ import androidx.navigation.compose.rememberNavController
 import net.ezra.R
 import net.ezra.navigation.ROUTE_ABOUT
 import net.ezra.navigation.ROUTE_HOME
-import net.ezra.ui.theme.AppTheme
 
 
 
@@ -28,7 +27,7 @@ fun AboutScreen(navController: NavHostController) {
     Column {
         Text(text = "about")
 
-        Text(text = stringResource(id = R.string.mit))
+        Text(text = stringResource(id = R.string.apen))
 
         Text(
             modifier = Modifier
