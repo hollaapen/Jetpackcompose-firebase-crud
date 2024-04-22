@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.CircularProgressIndicator
@@ -180,13 +181,9 @@ fun Students(navController: NavHostController, viewModel: FirestoreViewModel) {
                 },
                 colors = topAppBarColors(
         containerColor = Color(0xff0FB06A),
-        scrolledContainerColor = MaterialTheme.colorScheme.applyTonalElevation(
-    backgroundColor = containerColor,
-    elevation = TopAppBarSmallTokens.OnScrollContainerElevation
-),
-        navigationIconContentColor = TopAppBarSmallTokens.LeadingIconColor.value,
+
+
         titleContentColor = Color.White,
-        actionIconContentColor = TopAppBarSmallTokens.TrailingIconColor.value
     ),
             )
         },

@@ -2,12 +2,14 @@ package net.ezra.ui.auth
 
 
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -24,7 +26,10 @@ fun LoginScreen(navController: NavController, onLoginSuccess: () -> Unit) {
     var error by remember { mutableStateOf<String?>(null) }
     var isLoading by remember { mutableStateOf(false) }
 
+    BackHandler {
+        navController.popBackStack()
 
+    }
 
     Column(
         modifier = Modifier
@@ -38,7 +43,7 @@ fun LoginScreen(navController: NavController, onLoginSuccess: () -> Unit) {
         Text("Login", style = MaterialTheme.typography.h4)
         Spacer(modifier = Modifier.height(16.dp))
 
-        TextField(
+        OutlinedTextField(
             value = email,
             onValueChange = { email = it },
             label = { Text("Email") },
@@ -46,7 +51,7 @@ fun LoginScreen(navController: NavController, onLoginSuccess: () -> Unit) {
         )
         Spacer(modifier = Modifier.height(8.dp))
 
-        TextField(
+        OutlinedTextField(
             value = password,
             onValueChange = { password = it },
             label = { Text("Password") },
@@ -62,6 +67,7 @@ fun LoginScreen(navController: NavController, onLoginSuccess: () -> Unit) {
 
 
             Button(
+                colors = ButtonDefaults.buttonColors(Color(0xff0FB06A)),
                 onClick = {
                     if (email.isBlank() || password.isBlank()) {
                         error = "Please fill in all fields"

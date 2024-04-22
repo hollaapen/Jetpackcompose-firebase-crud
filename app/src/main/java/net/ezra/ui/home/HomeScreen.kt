@@ -17,9 +17,12 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+//noinspection UsingMaterialAndMaterial3Libraries
 import androidx.compose.material.BottomNavigation
+//noinspection UsingMaterialAndMaterial3Libraries
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
@@ -53,6 +56,7 @@ import net.ezra.navigation.ROUTE_DASHBOARD
 import net.ezra.navigation.ROUTE_HOME
 import net.ezra.navigation.ROUTE_LOGIN
 import net.ezra.navigation.ROUTE_SEARCH
+import net.ezra.navigation.ROUTE_VIEW_STUDENTS
 
 
 data class Screen(val title: String, val icon: Int)
@@ -88,13 +92,13 @@ fun HomeScreen(navController: NavHostController) {
 
                 actions = {
                     IconButton(onClick = {
-                        navController.navigate(ROUTE_ADD_STUDENTS) {
+                        navController.navigate(ROUTE_LOGIN) {
                             popUpTo(ROUTE_HOME) { inclusive = true }
                         }
 
                     }) {
                         Icon(
-                            imageVector = Icons.Filled.Add,
+                            imageVector = Icons.Filled.AccountCircle,
                             contentDescription = null,
                             tint = Color.White
                         )

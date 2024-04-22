@@ -7,6 +7,7 @@ import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
@@ -41,7 +42,7 @@ fun SignUpScreen(navController: NavController, onSignUpSuccess: () -> Unit) {
         Text("Sign Up", style = MaterialTheme.typography.h4)
         Spacer(modifier = Modifier.height(16.dp))
 
-        TextField(
+        OutlinedTextField(
             value = email,
             onValueChange = { email = it },
             label = { Text("Email") },
@@ -50,7 +51,7 @@ fun SignUpScreen(navController: NavController, onSignUpSuccess: () -> Unit) {
         Spacer(modifier = Modifier.height(8.dp))
 
 
-        TextField(
+        OutlinedTextField(
             value = password,
             onValueChange = { password = it },
             label = { Text("Password") },
@@ -59,7 +60,7 @@ fun SignUpScreen(navController: NavController, onSignUpSuccess: () -> Unit) {
         )
         Spacer(modifier = Modifier.height(8.dp))
 
-        TextField(
+        OutlinedTextField(
             value = confirmPassword,
             onValueChange = { confirmPassword = it },
             label = { Text("Confirm Password") },
@@ -72,6 +73,7 @@ fun SignUpScreen(navController: NavController, onSignUpSuccess: () -> Unit) {
             CircularProgressIndicator(modifier = Modifier.size(48.dp))
         } else {
             Button(
+                colors = ButtonDefaults.buttonColors(Color(0xff0FB06A)),
                 onClick = {
                     if (email.isBlank()){
                             error = "Email is required"
